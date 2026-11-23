@@ -1,19 +1,20 @@
 class Feder {
-  float d;
+  private float federkonstante;
+  private float laenge;
+  
   
 // Konstruktor + Koerper erstellen
-  Feder(float federkonstante){
-    d = federkonstante;
-    k1 = new Koerper(1);
-  }
-  
-// Startauslenkung simulieren
-  void auslenken(){
-    // Ruhelage bestimmen
-    float y0 = fg/d;
+ Feder(float federkonstante, float laenge){
+    this.federkonstante = federkonstante;
+    this.laenge = laenge;
   }
 
-// schwingende Bewegung ausfuehren
-  void bewegen(){
+  public float laenge(){
+    return this.laenge;
   }
-    
+  
+  public float federkonstante(){
+    return this.federkonstante;
+  }
+
+}    
