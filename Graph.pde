@@ -11,7 +11,7 @@ class Graph {
     for (int k = 0; k < verlauf.length -1; k++) {
     verlauf[k] = verlauf[k+1];
     }
-    verlauf[verlauf.length - 1] = y;
+    verlauf[verlauf.length - 1] = y; // y von gewichtetefeder
    }
   
   // Graph zeichnen
@@ -25,3 +25,5 @@ class Graph {
     endShape();
   }
 }
+
+// Koordinatensystem einbauen??

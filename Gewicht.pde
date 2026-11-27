@@ -12,6 +12,7 @@ class Gewicht {
   }
   
   public void gewichtskraftBerechnen(){
-    gewichtskraft = masse * ortsfaktor;
+    gewichtskraft = masse * ortsfaktor; //ortfaktor von umgebung
+  }
 }
   

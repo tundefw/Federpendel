@@ -3,16 +3,25 @@ class FederZeichner {
   private float x1; // der erste x-Wert fuer die Breite
   private float x2; // der zweite x-Wert fuer die Breite
   private float y1; // bleibt konstant, Position der Befestigung der Feder
-  private float y2 = gewichteteFeder.schwingung(); // momentane Auslenkung der Feder
+  private float y2 = gewichteteFeder.schwingung(); // momentane Auslenkung der Feder - hier fehlen kraft und zeit als eingaben
   private float gesamtLaenge; // der Feder
   public float t; // Zeit
+  
+  FederZeichner(float y1, float y2, float x1, float x2, float d) {
+    this.x1 = x1;
+    this.x2 = d*2 + x1;
+    this.y1 = y1;
+    this.y2 = y2;
+    this.federkonstante = d; // federkonstante soll von feder kommen
+   }
+ 
   
   public void plot(float t){
     strokeWeight(4); // Dicke der Feder
     stroke(0);
     gesamtLaenge = y2 - y1; 
-    gl = gesamtLaenge; // Abkuerzung
-    ab = y1 - gl/20; // Abschnitt
+    float gl = gesamtLaenge; // Abkuerzung
+    float ab = y1 - gl/20; // Abschnitt
     // Punkte verbinden, um eine Feder darzustellen
     beginShape();
     vertex((x2 - x1) / 2 + x1, y1);
@@ -37,7 +46,7 @@ class FederZeichner {
     vertex((x2 - x1) / 2 + x1, y2 - gl/20);
     endShape(); 
     t = millis() / 1000.0f;
-    y2 = 100.0f * sin(sqrt(D / g1.masse) * t) + 400.0f;
+    y2 = 100.0f * sin(sqrt(federkonstante / g1.masse) * t) + 400.0f; // federkonstante von feder
   }   
   
 }

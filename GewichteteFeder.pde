@@ -8,14 +8,16 @@ class GewichteteFeder {
   }
   
   public float startauslenkung(){
-    float y0 = gewichtskraft / federkonstante;
+    float y0 = gewichtskraft / federkonstante; // gewichtskraft soll von gewicht kommen, federkonstante von feder
     return y0;
   }
   
-  public float schwingung(float kraft, float t){
-    float a = kraft / masse;
+  public float schwingung(float kraft, float t){ // t muss sich eig aendern
+    float a = kraft / masse; // masse soll von gewicht kommen
     float v = a * t;
-    float y = y0 + v * t;
+    float y = startauslenkung() + v * t;
     return y;
   } 
 }
+
+// Gesamtkraft berechnen
